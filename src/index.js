@@ -23,7 +23,10 @@ $(document).ready(function () {
 
     function getElements(response) {
       $('.showHumidity').text(`The humidity in ${city} is ${response.main.humidity}%`);
-      $('.showTemp').text(`The temperature in Kelvins is ${response.main.temp} degrees.`);
+      $('.showTemp').text(`The temperature in Farenheigt is ${(Math.round(response.main.temp - 273.15) * 9 / 5 + 32)} degrees.`);
+      $('.showWind').text(`The wind speed is ${response.wind.speed}`)
+      $('.showLow').text(`The Low is ${(Math.round(response.main.temp_min - 273.15) * 9 / 5 + 32)}`)
+      $('.showHigh').text(`The High is ${(Math.round(response.main.temp_max - 273.15) * 9 / 5 + 32)}`)
     }
   });
 });
